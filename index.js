@@ -14,8 +14,8 @@ var deck = new Deck(),
 // console.log( deck, player1.username, player2.username );
 // console.log(player1.hand);
 
-// split the deck in half and assign to each player_1
-for (var i = 0; i < deck.length; i++) {
+// split the deck amongst both players
+while ( deck.length > 0 ) {
   // select random card:
   // 1. remove random index value from the deck and assign/push deal to each player
   // 2. splicing the deck will act as the increment value during each iteration
@@ -33,9 +33,7 @@ for (var i = 0; i < deck.length; i++) {
   // console.log( 'player 2: ' );
   // console.log( player2.hand );
 
-  console.log( i, deck.length );
+  console.log( deck.length );
 }
 
 console.log( deck.length, player1.hand.length, player2.hand.length );
-// console.log( deck.splice(Math.floor(Math.random() * deck.length), 1) );
-// console.log( deck.length);
