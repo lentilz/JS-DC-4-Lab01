@@ -1,5 +1,5 @@
 var Card = require('./Card.js'),
-suits = ['hearts', 'clubs', 'spades', 'diamonds']
+suits = ['hearts', 'clubs', 'spades', 'diamonds'];
 var ranks = ['ace', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'jack', 'queen', 'king'];
 
 module.exports = function Deck () {

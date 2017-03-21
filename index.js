@@ -4,16 +4,15 @@ var Player = require('./js/models/Player.js'),
     Deck = require('./js/models/Deck.js'),
     Prompt = require('./js/models/Prompt.js');
 
-Prompt;
+// Prompt;
 
+// Step 1:
 // create new Deck and initialize new set of players
 var deck = new Deck(),
     player1 = new Player('WarChamp1'),
     player2 = new Player('BeginnersLuck') ;
 
-// console.log( deck, player1.username, player2.username );
-// console.log(player1.hand);
-
+// Step 2:
 // split the deck amongst both players
 while ( deck.length > 0 ) {
   // select random card:
@@ -33,7 +32,29 @@ while ( deck.length > 0 ) {
   // console.log( 'player 2: ' );
   // console.log( player2.hand );
 
-  console.log( deck.length );
+  // console.log( deck.length );
 }
 
-console.log( deck.length, player1.hand.length, player2.hand.length );
+// console.log( deck.length, player1.hand.length, player2.hand.length );
+
+// Step 3:
+// compare player hands
+for (var i = 0; i < 5; i++) {
+  var p1Score = player1.hand[i][0].score,
+      p2Score = player2.hand[i][0].score;
+
+  // console.log( player1.hand[i], player1.hand[i][0].score );
+  // console.log( player2.hand[i], player2.hand[i][0].score );
+  console.log( p1Score + ' vs ' + p2Score);
+
+  if ( p1Score > p2Score ) {
+    // reward player 1
+    console.log(' player 1 wins round ');
+  } else if ( p1Score < p2Score ) {
+    // reward player 2
+    console.log( 'player 2 wins round ');
+  } else if ( p1Score === p2Score ) {
+    // war
+    console.log( 'declare war');
+  }
+}
