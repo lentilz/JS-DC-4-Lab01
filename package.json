@@ -1,0 +1,32 @@
+{
+  "name": "game_of_war",
+  "version": "1.0.0",
+  "description": "Our first lab",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lentilz/JS-DC-4-Lab01.git"
+  },
+  "keywords": [
+    "lab",
+    "objects",
+    "npm",
+    "modules",
+    "exports",
+    "require"
+  ],
+  "author": "Lentie Ward",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lentilz/JS-DC-4-Lab01/issues"
+  },
+  "homepage": "https://github.com/lentilz/JS-DC-4-Lab01#readme",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "colors": "^1.1.2",
+    "prompt": "^1.0.0"
+  }
+}
