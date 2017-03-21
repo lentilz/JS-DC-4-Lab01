@@ -37,26 +37,45 @@ while ( deck.length > 0 ) {
 
 // Step 3:
 // compare player hands
-for (var i = 0; i < 10; i++) {
-  var p1Score = player1.hand[i][0].score,
-      p2Score = player2.hand[i][0].score;
+function draw(hand1, hand2, leader){
+  for (var i = 0; i < leader; i++) {
+    var p1Score = hand1[i][0].score,
+        p2Score = hand2[i][0].score,
+        leader;
 
-  // console.log( player1.hand[i], player1.hand[i][0].score );
-  // console.log( player2.hand[i], player2.hand[i][0].score );
-  console.log( p1Score + ' vs ' + p2Score);
+    console.log( p1Score + ' vs ' + p2Score);
 
-  if ( p1Score > p2Score ) {
-    // reward player 1
-    console.log(' player 1 wins round ');
-    player1.hand.push( player2.hand.splice(i, 1) );
-  } else if ( p1Score < p2Score ) {
-    // reward player 2
-    console.log( 'player 2 wins round ');
-    player2.hand.push( player1.hand.splice(i, 1) );
-  } else if ( p1Score === p2Score ) {
-    // war ( draw more cards )
-    console.log( 'declare war');
+    if ( p1Score > p2Score ) {
+      // reward player 1
+      console.log(' player 1 wins round ');
+      hand1.push( hand2.splice(i, 1) );
+    } else if ( p1Score < p2Score ) {
+      // reward player 2
+      console.log( 'player 2 wins round ');
+      hand2.push( hand1.splice(i, 1) );
+    } else if ( p1Score === p2Score ) {
+      // war ( draw more cards -- nested for loop or is that messy? )
+      console.log( 'declare war');
+    }
+
+    // Store the leaders' hand length in variable
+    // iterate w variable of changing greatest hand, so that the loop continues until someone's hand === 0
+    if ( hand1.length > hand2.length ){
+      leader = hand1.length;
+      console.log('player 1 winning');
+    } else {
+      leader = hand2.length;
+      console.log('player 2 is winning');
+      // if player 1's hand is smaller, then either player 2 has a larger hand or they are even.
+    }
+
+    console.log( 'Track scores: ' + hand1.length + ' vs ' + hand2.length, leader );
+
+    i++;
   }
 }
 
-console.log( deck.length, player1.hand.length, player2.hand.length );
+draw(player1.hand, player2.hand, 5);
+
+//
+// console.log( 'Track scores: ', deck.length, player1.hand.length, player2.hand.length );
