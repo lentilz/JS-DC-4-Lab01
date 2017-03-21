@@ -35,11 +35,9 @@ while ( deck.length > 0 ) {
   // console.log( deck.length );
 }
 
-// console.log( deck.length, player1.hand.length, player2.hand.length );
-
 // Step 3:
 // compare player hands
-for (var i = 0; i < 5; i++) {
+for (var i = 0; i < 10; i++) {
   var p1Score = player1.hand[i][0].score,
       p2Score = player2.hand[i][0].score;
 
@@ -50,11 +48,15 @@ for (var i = 0; i < 5; i++) {
   if ( p1Score > p2Score ) {
     // reward player 1
     console.log(' player 1 wins round ');
+    player1.hand.push( player2.hand.splice(i, 1) );
   } else if ( p1Score < p2Score ) {
     // reward player 2
     console.log( 'player 2 wins round ');
+    player2.hand.push( player1.hand.splice(i, 1) );
   } else if ( p1Score === p2Score ) {
-    // war
+    // war ( draw more cards )
     console.log( 'declare war');
   }
 }
+
+console.log( deck.length, player1.hand.length, player2.hand.length );
